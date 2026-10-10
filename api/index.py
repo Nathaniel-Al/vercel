@@ -27,12 +27,13 @@ def percentile(values, p):
 
 
 @app.get("/")
+@app.get("/{path:path}")
 def health():
     return {"status": "ok"}
 
 
 @app.post("/")
-@app.post("/api")
+@app.post("/{path:path}")
 def metrics(q: Query):
     out = {}
     for region in q.regions:
